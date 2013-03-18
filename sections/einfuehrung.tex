@@ -9,4 +9,27 @@
 		Ein Schwarm kann als ganzes eine Eigenschaft haben, die aus den einzelnen Mitglieder des Schwarms nicht voraussagbar ist. So kann eine einzelne Nervenzelle keine Informationen Speicher oder denken. Wenn nun aber Milliarden von Nervenzellen richtig zusammen zu einem Hirn verknüpft sind, kann das ganze denke wie auch Informationen speichern. Dies sind offenbar emergente Eigenschaften, welche nicht durch einzelne Nervenzellen sonder durch ein vielzahl von Nervenzellen zustande kommt.
 		\subsubsection{Emergenz}
 		Emergente Eigenschaften sind Eigenschaften die durch das Zusammenspiel vom vielen einzelnen Teilen, zum Beispiel in einem Schwarm, entstehen. Durch einzelne Teile in einem Schwarm lässt sicher nicht immer vorher sagen, welche emergente Eigenschaften der Schwarm hat. \\
-		Das es ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch Intelligenter als das Verhalten der Bestanteilen ist. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen.
+		Das es ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch Intelligenter als das Verhalten der Bestanteilen ist. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen. \\
+		Die Emergenz ist Grundbestandteil von Algorithmen, welche auf das Verhalten von Schwärmen zurückgreifen.
+		\subsubsection{Algorithmen}
+		Es gibt verschiedene Alogrithmen, die die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am weitesten Verbreitet ist der Partikel Schwarmalgorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weiter Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im weitern nicht weiter eingegangen.
+		
+		\paragraph{Ant Colony Alogrithm}
+		$\;$ \\
+		Auch Ameisen nutzen die Intelligenz des Ganzen, wenn sie Futterplätze nutzen. Hat eine Ameise einen Futterplatz gefunden, hinterlässt sie auf dem Rückweg Pheromone, an denen sich andere Ameisen orientieren und so den Futterplatz und jeweils den Rückweg finden. Findet nun eine Ameise einen schnelleren Weg zurück so verflüchtigen sich diese Pheromone weniger schnell, da es weniger Zeit braucht für einen Weg. Nun werden die andere Ameisen aufmerksam auf diese stärkere Spur und schlussendlich nutzen alle diesen schnelleren Weg. Dieses Prinzip wird im Ameisenalgorithmus (ant colony optimization algorithm) ausgenützt.\\Dieser Algorithmus wird typischerweise für eine Pfadoptimierung verwendet.
+		
+		\paragraph{Invasive Weed}
+		$\;$ \\
+		Dieser Algorithmus orientiert an der Fortpflanzung von Pflanzen. Es werden Pflanzen frei über das Suchgebiet verteilt und dann die Fitness bewertet. Je Fitter eine Pflanze ist desto mehr Pflanzensamen verteilt sie. Auch bei diesen Pflanzen wird die Fitness bewertet. Das ganze wird solange fortgeführt, bis eine maximal Anzahl Pflanzen, die zuvor definiert wurde, erreicht ist und dann wird die Fitness aller Pflanzen bewertet und nur die der besten werden in einen neuen Durchgang mitgenommen. Dies wird solange wiederholt, bis das Abbruchkriterium erfüllt ist.
+				
+		
+		\paragraph{Bees Algorithm}
+		$\;$ \\
+		Beim Bienenalgorithmus hat man, wie der Name schon sagt, bei den Bienen abgeschaut.\\
+		In einem ersten Schritt werden "Scouts" frei über das Suchgebiet verteilt und im Anschluss deren Fitness angeschaut. Bei dem "Scout" mit der besten Fitness werden in der Umgebung erneut "Bienen" verteilt und deren Fitness beurteilt. Dieser Schritt wiederholt sich, bis man ein Ergebnis erreicht hat, das das Abbruchkriterium erfüllt.\\Dieser Algorithmus wird typischerweise für Kombinatorische oder funktionale Optimierung verwendet.
+		
+		\paragraph{Firefly Algorithm} 
+		Der Firefly Algorithm nutzt das Paarungsverhalten von Glühwürmchen. Glühwürmchen werden Unisexuel implementiert damit jedes Tier für das andere als Partner infrage kommt. \\
+		Zuerst werden Glühwürmchen frei auf dem Suchgebiet verteilt. Danach wird die Fitness beurteilt. Je fitter ein Glühwürmchen ist, desto heller leuchtet es und je heller es leuchtet desto interessanter ist ein Glühwürmchen für die Artgenossen. Das heisst, jedes einzelne bewegt sich auf das Tier zu, das aus seiner Sicht am hellsten ist. Je näher man sich auf ein Glühwürmchen zu bewegt, desto heller leuchtet es. So werden bald alle Glühwürmchen Richtung Optimum wandern. Würden nun alle gleich hell leuchten, sprich dieselbe Fitness haben, würden sich die Tiere zufällig im Suchraum bewegen.
+		
+		
