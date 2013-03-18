@@ -7,10 +7,13 @@
 		Wenn man von Schwärmen spricht denkt man an Fischschwärme oder an Vogelschwärme die in der freien Wildbahn sich bilden um z.B. als Zugvogelschwarm nach Süden oder Norden zu ziehen oder als Fischschwarm gemeinsam auf Nahrungssuche zu gehen oder sich gegen natürlich Feinde zu verteidigen. Solche Schwärme können das wissen aller einzelnen Nutzen und so Beispielsweise die besten Futterplätze finden.
 		\subsection{Schwarmintelligenz}
 		Ein Schwarm kann als ganzes eine Eigenschaft haben, die aus den einzelnen Mitglieder des Schwarms nicht voraussagbar ist. So kann eine einzelne Nervenzelle keine Informationen Speicher oder denken. Wenn nun aber Milliarden von Nervenzellen richtig zusammen zu einem Hirn verknüpft sind, kann das ganze denke wie auch Informationen speichern. Dies sind offenbar emergente Eigenschaften, welche nicht durch einzelne Nervenzellen sonder durch ein vielzahl von Nervenzellen zustande kommt.
-		\subsubsection{Emergenz}
+		\subsection{Emergenz}
 		Emergente Eigenschaften sind Eigenschaften die durch das Zusammenspiel vom vielen einzelnen Teilen, zum Beispiel in einem Schwarm, entstehen. Durch einzelne Teile in einem Schwarm lässt sicher nicht immer vorher sagen, welche emergente Eigenschaften der Schwarm hat. \\
 		Das es ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch Intelligenter als das Verhalten der Bestanteilen ist. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen. \\
 		Die Emergenz ist Grundbestandteil von Algorithmen, welche auf das Verhalten von Schwärmen zurückgreifen.
+		
+		\input{sections/Schwarmalgorithmus.tex}
+				
 		\subsubsection{Algorithmen}
 		Es gibt verschiedene Alogrithmen, die die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am weitesten Verbreitet ist der Partikel Schwarmalgorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weiter Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im weitern nicht weiter eingegangen.
 		
@@ -29,6 +32,7 @@
 		In einem ersten Schritt werden "Scouts" frei über das Suchgebiet verteilt und im Anschluss deren Fitness angeschaut. Bei dem "Scout" mit der besten Fitness werden in der Umgebung erneut "Bienen" verteilt und deren Fitness beurteilt. Dieser Schritt wiederholt sich, bis man ein Ergebnis erreicht hat, das das Abbruchkriterium erfüllt.\\Dieser Algorithmus wird typischerweise für Kombinatorische oder funktionale Optimierung verwendet.
 		
 		\paragraph{Firefly Algorithm} 
+		$\;$ \\
 		Der Firefly Algorithm nutzt das Paarungsverhalten von Glühwürmchen. Glühwürmchen werden Unisexuel implementiert damit jedes Tier für das andere als Partner infrage kommt. \\
 		Zuerst werden Glühwürmchen frei auf dem Suchgebiet verteilt. Danach wird die Fitness beurteilt. Je fitter ein Glühwürmchen ist, desto heller leuchtet es und je heller es leuchtet desto interessanter ist ein Glühwürmchen für die Artgenossen. Das heisst, jedes einzelne bewegt sich auf das Tier zu, das aus seiner Sicht am hellsten ist. Je näher man sich auf ein Glühwürmchen zu bewegt, desto heller leuchtet es. So werden bald alle Glühwürmchen Richtung Optimum wandern. Würden nun alle gleich hell leuchten, sprich dieselbe Fitness haben, würden sich die Tiere zufällig im Suchraum bewegen.
 		
