@@ -1,9 +1,53 @@
-\section{Partikelschwarmalgorithmus}
+\section{Partikelschwarm-Algorithmus}
 
 \subsection{Algorithmus}
+Für die Partikelschwarm-Optimierung sind folgende Zustandsdaten zu jedem Partikel notwendig: \\
+\begin{tabular}{ll}
+$x_i$: & aktuelle Position\\
+$v_i$: & aktuelle Geschwindigkeit\\
+$p_i$: & Persönlich beste Position\\
+\end{tabular} \\
+
+\subsubsection{Initialisierung}
+Üblich ist die Initialisierung gemäss folgenden Formeln: \\
+\begin{align}
+	x_i(0) &= U(min,max) \\
+	v_i(0) &= \frac{U(min,max) - x_i(0)}{2} \label{Vi-old} \\ 
+	p_i(0) &= x_i(0)
+\end{align} \\
+Die Erfahrung hat gezeigt, dass mit der Initialisierung der Geschwindigkeit gemäss Gleichung \ref{Vi-old} die Partikel bei hohen Dimensionen den Suchraum praktisch unmittelbar verlassen. Um dies zu beheben wurde folgende angepasste Initialisierung eingeführt: \\
+\begin{equation}
+	v_i(0) = U(min - x_i(0), max - x_i(0))
+\end{equation}
+
+\subsubsection{Update der Geschwindigkeit}
+Bei jeder Iteration werden die Zustandsdaten für jedes Partikel neu berechnet. Die neue Geschwindigkeit ist eine Linearkombination von drei Vektoren. Die Position wird gemäss Gleichung \ref{Pos-Update} aktualisiert. \\
+\begin{align}
+	v_{i}(t+1) &= \mathcal{C}(v_i(t),\, p_i(t)-x_i(t),\, l_i(t)-x_i(t)) \\
+	x_{i}(t+1) &= x_i(t) + v_i(t+1) \label{Pos-Update}
+\end{align}
+
+Über die korrekte Wahl der Linearkombination $\mathcal{C}$ wurden bereits ganze Arbeiten geschrieben. Weit verbreitet, wenn auch nicht ideal ist die Berechnung gemäss Gleichung \ref{Vel-Update}. \\
+\begin{equation}
+	v_i(t+1) = w v_i(t) + U(0,c) (p_i(t)-x_i(t)) + U(0,c) (l_i(t)-x_i(t))\label{Vel-Update}
+\end{equation}
+Die Parameter werden gemäss \cite{Clerc-Stagnation} folgendermassen gewählt:
+\begin{equation}
+	\left\lbrace \begin{array}{lllll}
+		w & = & \frac{1}{2 \ln(2)} & \simeq & 0.721 \\
+		c & = & \frac{1}{2} + \ln(2) & \simeq & 1.139 \\
+	\end{array}	\right. 
+\end{equation} \\
+
+Die Herleitung der neuen Geschwindigkeit lässt sich mittels virtuellen Punkten übersichtlich visualisieren. Die Punkte $x'_i$ und $x''_i$ werden zufällig aus den zu den Achsen parallelen, gelb bzw. grün hinterlegten Bereichen generiert.  \\
+\begin{figure}[htbp]
+	\centering
+	\input{tikz/new-velocity}
+	\caption{Visualisierung der Geschwindigkeit}
+	\label{Fig-Visualisierung-Geschwindigkeit}
+\end{figure}
 
 
-\subsection{Geschwindigkeitskomponenten}
 
 \subsection{Grösse des Schwarms}
 Über die ideale Grösse des Partikelschwarms lassen sich keine exakten Angaben machen. Gemäss \cite{Clerc-Standards} lässt sich die Grösse $S$ des Schwarms in Abhängigkeit der Dimension $D$ wie folgt ausdrücken.
