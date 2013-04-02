@@ -48,10 +48,12 @@ Die Herleitung der neuen Geschwindigkeit lässt sich mittels virtuellen Punkten 
 \end{figure}
 
 
-
 \subsection{Grösse des Schwarms}
 Über die ideale Grösse des Partikelschwarms lassen sich keine exakten Angaben machen. Gemäss \cite{Clerc-Standards} lässt sich die Grösse $S$ des Schwarms in Abhängigkeit der Dimension $D$ wie folgt ausdrücken.
 \begin{equation}
 	S = 10 + \left[ 2 \cdot \sqrt{D} \right]
 \end{equation}
 Die Näherung führt jedoch oft zu ungeeigneten Werten, weshalb Maurice Clerc vorschlägt, einen beliebigen Wert um $40$ zu wählen. Die theoretischen Grundlagen zur idealen Grösse des Schwarms sind nicht bekannt.
+
+\subsection{Parallelisierung}
+Aus der Beschreibung des Algorithmus wird schnell ersichtlich, dass die Partikelschwarm-Optimierung sehr gut für eine parallelisierte Berechnung geeignet ist. Die Aktualisierung der Geschwindigkeit und Position kann für alle Partikel gleichzeitig, parallel erfolgen. Bei rechenintensiven Problemen ist dies ein enormer Vorteil gegenüber anderen Optimierungsmethoden.
