@@ -1,0 +1,36 @@
+\section{Maximale Geschwindigkeit}
+
+Ein bekanntes Problem der Partikelschwarm-Optimierung ist, dass die Geschwindigkeit eines Partikels schnell sehr hohe Werte annimmt. Das kann so weit gehen, dass ganze Teilgebiete durch die hohe Geschwindigkeit übersprungen werden. Die Lösung für dieses Problem ist die Einführung einer maximalen Geschwindigkeit, \textit{velocity clamping} genannt. Die Geschwindigkeit wird also nach folgender Formel berechnet:
+\begin{equation}
+	v_{ij}(t+1) = 
+	\begin{cases}
+		v_{ij}(t+1) & \text{if} |v_{ij}(t+1)| < V_{max,j} \\
+		V_{max,j} & \text{if} |v_{ij}(t+1)| \geq V_{max,j}
+	\end{cases}
+\end{equation} \label{eqn-max-velocity}
+Durch diese Erweiterung sorgt dafür, dass ein grösserer Bereich des Suchraums erforscht wird. Der optimale Wert für $V_{max,j}$ ist vom Problem abhängig und kann nicht generell bestimmt werden. \\
+
+Wie die Gleichung \ref{eqn-max-velocity} zeigt, wird die Geschwindigkeit für jede Dimension einzeln beschränkt. Damit ergibt sich graphisch folgende Situation:
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics{tikz/max-velocity.tex}
+	\caption{Einführen einer maximalen Geschwindigkeit}
+	\label{fig-max-velocity}
+\end{figure}
+
+Diese Geschwindigkeitsbegrenzung führt jedoch zu Problemen, wenn alle Geschwindigkeiten höher als die Begrenzung sind: Die Teilchen suchen dann nur an den Kanten eines $n$-dimensionalen Hyperwürfels. Als Gegenmassnahme kann $V_{max,j}$ dynamisch angepasst werden, wenn sich die global beste Position gbest über eine Anzahl $\tau$ Iterationen nicht verbessert:
+\begin{equation}
+	V_{max,j} = 
+	\begin{cases}
+		\beta V_{max,j} & \text{if} f(\hat{y}(t)) \geq f(\hat{y}(t-t')) \\
+			& \forall \: t' = \{ 1, ..., \tau \} \\
+		V_{max,j} & \text{otherwise}
+	\end{cases}
+\end{equation}
+
+Um eine höhere Genauigkeit zu erreichen kann die maximale Geschwindigkeit im Verlauf der Zeit exponentiell verringert werden:
+\begin{equation}
+	V_{max,j}(t+1) = \left(1-\left(\frac{t}{T}\right)^{\alpha}\right) V_{max,j}(t)
+\end{equation}
+$T$ ist hier die maximale Anzahl Iterationen. Der Faktor $\alpha$ ist abhängig von der Problemstellung und es existieren gemäss \cite{Han-Modification} keine mathematischen Hintergründe zur exakten Bestimmung. \\
