@@ -2,11 +2,12 @@
 
 \subsection{Algorithmus}
 Für die Partikelschwarm-Optimierung sind folgende Zustandsdaten zu jedem Partikel notwendig: \\
-\begin{tabular}{ll}
-$x_i$: & aktuelle Position\\
-$v_i$: & aktuelle Geschwindigkeit\\
-$p_i$: & Persönlich beste Position\\
-\end{tabular} \\
+\begin{align*}
+	x_i: & \text{aktuelle Position}\\
+	v_i: & \text{aktuelle Geschwindigkeit}\\
+	p_i: & \text{Persönlich beste Position} \\
+	l_i: & \text{Beste Position des Schwarms}
+\end{align*} \\
 
 \subsubsection{Initialisierung}
 Üblich ist die Initialisierung gemäss folgenden Formeln: \\
@@ -29,15 +30,23 @@ Bei jeder Iteration werden die Zustandsdaten für jedes Partikel neu berechnet. 
 
 Über die korrekte Wahl der Linearkombination $\mathcal{C}$ wurden bereits ganze Arbeiten geschrieben. Weit verbreitet, wenn auch nicht ideal ist die Berechnung gemäss Gleichung \ref{Vel-Update}. \\
 \begin{equation}
-	v_i(t+1) = w v_i(t) + U(0,c) (p_i(t)-x_i(t)) + U(0,c) (l_i(t)-x_i(t))\label{Vel-Update}
+	v_i(t+1) = w v_i(t) + U(0,c_1) (p_i(t)-x_i(t)) + U(0,c_2) (l_i(t)-x_i(t))\label{Vel-Update}
 \end{equation}
-Die Parameter werden gemäss \cite{Clerc-Stagnation} folgendermassen gewählt:
+
+mit den folgenden Parametern:
+\begin{align*}
+	w &: \text{Intertia Weight} \\
+	c_1 &: \text{Cognitive Factor} \\
+	c_2 &: \text{Social Factor}
+\end{align*}
+Diese Parameter, auch Acceleration Coefficients genannt, beeinflussen das  Verhalten und die Konvergenz des Schwarms. Hohe $c_1$ und $c_2$ führen zu abrupteren Bewegungen und höheren Beschleunigungen. Mit der Gewichtung dieser beiden Faktoren lässt sich weiter einstellen, wie stark sich die Partikel von Schwarm beeinflussen lassen. Wie genau diese Parameter eingestellt werden ist von der Problemstellung abhängig. Gemäss \cite{Clerc-Stagnation} haben sich folgende Werte für einfache Probleme als zweckmässig erwiesen:
 \begin{equation}
 	\left\lbrace \begin{array}{lllll}
 		w & = & \frac{1}{2 \ln(2)} & \simeq & 0.721 \\
-		c & = & \frac{1}{2} + \ln(2) & \simeq & 1.139 \\
+		c_1 = c_2 & = & \frac{1}{2} + \ln(2) & \simeq & 1.139 \\
 	\end{array}	\right. 
 \end{equation} \\
+
 
 Die Herleitung der neuen Geschwindigkeit lässt sich mittels virtuellen Punkten übersichtlich visualisieren. Die Punkte $x'_i$ und $x''_i$ werden zufällig aus den zu den Achsen parallelen, gelb bzw. grün hinterlegten Bereichen generiert.  \\
 \begin{figure}[htbp]
@@ -54,6 +63,10 @@ Die Herleitung der neuen Geschwindigkeit lässt sich mittels virtuellen Punkten 
 	S = 10 + \left[ 2 \cdot \sqrt{D} \right]
 \end{equation}
 Die Näherung führt jedoch oft zu ungeeigneten Werten, weshalb Maurice Clerc vorschlägt, einen beliebigen Wert um $40$ zu wählen. Die theoretischen Grundlagen zur idealen Grösse des Schwarms sind nicht bekannt.
+
+
+\subsection{Exploration-Exploitation Tradeoff}
+Der Exploration-Exploitation Tradeoff sagt aus, dass ein Partikelschwarm nicht gleichzeitig ein möglichst grosses Zielgebiet absuchen kann (Exploration) und einen Bereich so genau wie möglich durchsuchen kann (Exploitation). Dieses Verhältnis von Exploration zu Exploitation hat einen starken Einfluss auf die Konvergenz. Generell kann gesagt werden, dass je höher die Inertia Weight $w$, desto weniger verlangsamt sich die Geschwindigkeit der Partikel, weshalb die Exploration stärker gewichtet ist.
 
 \subsection{Parallelisierung}
 Aus der Beschreibung des Algorithmus wird schnell ersichtlich, dass die Partikelschwarm-Optimierung sehr gut für eine parallelisierte Berechnung geeignet ist. Die Aktualisierung der Geschwindigkeit und Position kann für alle Partikel gleichzeitig, parallel erfolgen. Bei rechenintensiven Problemen ist dies ein enormer Vorteil gegenüber anderen Optimierungsmethoden.
