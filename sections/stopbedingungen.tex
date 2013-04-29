@@ -1,16 +1,9 @@
 \section{Abbruchkriterien}
 
-Da der Algorithmus theoretisch unendlich lange laufen kann, definiert man zu beginn Abbruchkriterien, die den Algorithmus beenden.\\
+Da der Algorithmus theoretisch unendlich lange laufen kann, definiert man zu beginn Abbruchkriterien, die den Algorithmus beenden.
 Die Wahl der Abbruchkriterien kann einen bedeutenden Einfluss darauf haben, wie lange er läuft und ob er lokale oder globale Extremastellen findet.
 
 \subsection{Art der Abbruchkriterien}
-
-\begin{itemize}
-\item Maximale Anzahl Iterationen
-\item Schwellwert für den global besten Fitnesswert
-\item Schwellwert für die minimale Veränderung der Funktionswerte 
-\item Schwellwert für den minimalen Bewegungsbereich
-\end{itemize}
 
 \subsubsection{Maximale Anzahl Iterationen}
 Dies ist die einfachste Art, den Algorithmus zu beenden. Es bietet Vorteile, wie z.B. das man von Anfang an weiss, wie lange der Algorithmus ungefähr laufen wird und es einfach zu Implementieren ist, da man sich keine Gedanken um den Wert des Ergebnisses machen muss. \\
@@ -27,19 +20,6 @@ Auch hier beseht die Gefahr, dass es sehr lange dauert bis der Algorithmus beend
 \subsubsection{Schwellwert für den minimalen Bewegungsbereich}
 In diesem Abbruchkriterium ist der minimale Bewegungsbereich vorgegeben. Bewegen sich die Partikel nur noch innerhalb des Bereichs, wird der Prozess beendet. Man kann davon ausgehen, das man sich innerhalb des Bereichs auch das Extrema befindet und man einen genügend guten Fitnesswert erreicht hat. Mit diesem Kriterium kann analog zum oben ebenfalls ein Extrema gefunden werden, welches schlechter ist als erwartet.\\
 Bei diesem Abbruchkriterium ist ebenfalls zu beachten, dass es nur abbricht, wenn ein Extrema vorhanden ist. Sollte es keines geben läuft er endlos.
-
-\subsection{Implementierung}
-\subsubsection{Maximale Anzahl Iterationen}
-Dies geht wie oben erwähnt sehr einfach, man wählt eine Zählvariable und lässt eine Schleife, in der die Zählvariable inkrementiert wird, laufen, bis die Zählvariable gleich der Maximalen Anzahl Iterationen ist.
-
-\subsubsection{Schwellwert für den global besten Fitnesswert}
-Auch dieses Abbruch Kriterium lässt sich einfach Implementieren. Man lässt eine Schleife laufen, in der man nach jedem Durchgang überprüft, ob der Schwellwert erreicht ist oder nicht. 
-
-\subsubsection{Schwellwert für die minimale Veränderung der Funktionswerte}
-Bei dieser Abbruchbedingung werden die Geschwindigkeitsvektoren untersucht. Fällt die Geschwindigkeit aller unter den vorgegeben Wert, so wird der Algorithmus abgebrochen. 
-
-\subsubsection{Schwellwert für den minimalen Bewegungsbereich}
-Bei diesem Kriterium muss man eine Bereichsgrösse festlegen, und bei jedem Durchgang überprüfen, ob die Partikel bereits alle in eine solche Bereichsgrösse passen oder ob sie noch zu weit verteilt sind auf den Suchraum. Man vergleicht sämtliche Partikel anhand der Ortsvektoren und wählt dann den grössten Abstand und vergleicht den mit der grösse des Bereichs. Passen die zwei am weitesten voneinander entfernten Partikel in die Bereichsgrösse, so passen auch alle anderen rein.
 
 \subsection{Wahl der Abbruchkriterien}
 Die Wahl der Abbruchkriterien ist sehr wichtig, wenn man mit der Partikelschwarmoptimierung etwas erreichen will. Man muss festlegen, ob die Zeit zum berechnen oder die Qualität des Resultats wichtiger sind. Ist die Zeit das Ausschlaggebende gibt man die maximale Anzahl Iterationen vor. Hat man genügend Zeit zum berechnen, gibt man nebst einer maximalen Anzahl Iterationen noch eines der anderen Kriterien vor und kann so mit der Anzahl Iterationen die maximale Zeit steuern und mit dem anderen Kriterium die Qualität. 
