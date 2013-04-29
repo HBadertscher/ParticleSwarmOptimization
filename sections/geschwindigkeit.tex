@@ -1,5 +1,9 @@
-\section{Maximale Geschwindigkeit}
+\section{Einschränkung des Zielgebiets}
+Häufig kommt es vor, dass das Optimum innerhalb eines bestimmten Zielgebiets gesucht wird. Daher müssen Mittel gefunden werden, um zu verhindern dass die Partikel einen Definitionsbereich verlassen und nicht mehr zur Lösungsfindung beitragen. Die einfachste Möglichkeit ist, den Fitnesswert von Partikeln ausserhalb des Definitionsgebiets auf einen schlechten Wert zu setzen. Trotzdem benötigt das Partikel meist mehrere Iterationen um zurück in das Definitionsgebiet zu finden.
 
+Eine verbreitete Lösung ist, das Partikel auf die Grenze des Bereichs und die Geschwindigkeit auf 0 zu setzen. Dieser Ansatz hat sich gegenüber dem ``Abprallen'' an der Bereichsgrenze durchgesetzt, weil so Optima am Rand des Zielgebiets besser erkannt werden können.
+
+\section{Maximale Geschwindigkeit}
 Ein bekanntes Problem der Partikelschwarm-Optimierung ist, dass die Geschwindigkeit eines Partikels schnell sehr hohe Werte annimmt. Das kann so weit gehen, dass ganze Teilgebiete durch die hohe Geschwindigkeit übersprungen werden. Die Lösung für dieses Problem ist die Einführung einer maximalen Geschwindigkeit, \textit{velocity clamping} genannt. Die Geschwindigkeit wird also nach folgender Formel berechnet:
 \begin{equation}
 	v_{ij}(t+1) = 
