@@ -1,2 +1,18 @@
 \section{Code}
 Der komplette C++ Code befindet sich im Anhang. In diesem Teil wird der Code etwas beschrieben.
+
+\subsection{Position-Klasse}
+Die Klasse \textit{Position} stellt einen mehrdimensionalen Datentypen zur Verfügung. 
+Damit ist es möglich, Probleme jeder beliebigen Dimension zu lösen.
+
+\subsection{Particle-Klasse}
+In der \textit{Particle}-Klasse werden die Positionen und Geschwindigkeiten jedes Partikels
+als Attribute gespeichert. Weiter werden Funktionen für Geschwindigkeits- und Positionsupdates
+zur Verfügung gestellt.
+
+\subsection{Swarm-Klasse}
+Die Klasse \textit{Swarm} dient dazu einen Schwarm von Partikeln zu erzeugen und zu initialisieren.
+Zusätzlich wird eine Funktion zur Ausführung der Optimierung bereitgestellt.
+
+\subsection{Random}
+Die selbst erstellte Funktion \textit{getRand} dient dazu, Zufallszahlen im Bereich zwischen \textit{min} und \textit{max} zu erzeugen. Diese werden in der Initialisierung und bei jeder Iteration des Schwarms benötigt. 
