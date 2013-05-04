@@ -66,7 +66,7 @@ Die Näherung führt jedoch oft zu ungeeigneten Werten, weshalb Maurice Clerc vo
 
 
 \subsection{Exploration-Exploitation Tradeoff}
-Der Exploration-Exploitation Tradeoff sagt aus, dass ein Partikelschwarm nicht gleichzeitig ein möglichst grosses Zielgebiet absuchen kann (Exploration) und einen Bereich so genau wie möglich durchsuchen kann (Exploitation). Dieses Verhältnis von Exploration zu Exploitation hat einen starken Einfluss auf die Konvergenz. Generell kann gesagt werden, dass je höher die Inertia Weight $w$, desto weniger verlangsamt sich die Geschwindigkeit der Partikel, weshalb die Exploration stärker gewichtet ist.
+Der Exploration-Exploitation Tradeoff sagt aus, dass ein Partikelschwarm nicht gleichzeitig ein möglichst grosses Zielgebiet absuchen kann (Exploration) und einen Bereich so genau wie möglich durchsuchen kann (Exploitation). Dieses Verhältnis von Exploration zu Exploitation hat einen starken Einfluss auf die Konvergenz. Generell kann gesagt werden, dass je höher die Inertia Weight $w$, desto weniger verlangsamt sich die Geschwindigkeit der Partikel, weshalb die Exploration stärker gewichtet wird.
 
 \subsection{Parallelisierung}
 Aus der Beschreibung des Algorithmus wird schnell ersichtlich, dass die Partikelschwarm-Optimierung sehr gut für eine parallelisierte Berechnung geeignet ist. Die Aktualisierung der Geschwindigkeit und Position kann für alle Partikel gleichzeitig, parallel erfolgen. Bei rechenintensiven Problemen ist dies ein enormer Vorteil gegenüber anderen Optimierungsmethoden.
