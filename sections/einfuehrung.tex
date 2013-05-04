@@ -7,15 +7,16 @@
 		Wenn man von Schwärmen spricht, denkt man an Fisch- oder an Vogelschwärme, die sich in der freien Wildbahn  bilden um z.B. als Zugvogelschwarm nach Süden oder Norden zu ziehen, als Fischschwarm gemeinsam auf Nahrungssuche zu gehen oder sich gegen natürlich Feinde zu verteidigen. Solche Schwärme können das Wissen aller einzelnen nutzen und so beispielsweise die besten Futterplätze finden.
 		\subsection{Schwarmintelligenz}
 		Ein Schwarm kann als ganzes eine Eigenschaft haben, die aus den einzelnen Mitgliedern des Schwarms nicht voraussagbar ist. So kann eine einzelne Nervenzelle keine Informationen speicher, wenn nun aber Milliarden von Nervenzellen richtig zusammen zu einem \textacutedbl Hirn\textacutedbl \ verknüpft sind, kann das Ganze denken wie auch Informationen speichern. Dies sind offenbar emergente Eigenschaften, welche nicht durch einzelne Nervenzellen sondern durch eine Vielzahl von Nervenzellen zustande kommt.
+		\cite{partice-swarm-optimization}
 		\subsection{Emergenz}
 		Emergente Eigenschaften sind Eigenschaften, die durch das Zusammenspiel vom vielen einzelnen Teilen, zum Beispiel in einem Schwarm, entstehen. Diese Eigenschaften lassen sich nicht immer einzig aus den Bestandteilen des Schwarms vorhersagen. \\
 		Dass es ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch intelligenter ist, als das Verhalten der Bestanteile selbst. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen. \\
-		Die Emergenz ist Grundbestandteil von Algorithmen, welche auf das Verhalten von Schwärmen zurückgreifen.
+		Die Emergenz ist Grundbestandteil von Algorithmen, welche auf das Verhalten von Schwärmen zurückgreifen.\cite{melchior-bsc}
 		
 		\input{sections/Schwarmalgorithmus.tex}
 				
 		\subsubsection{Algorithmen}
-		Es gibt verschiedene Alogrithmen, die die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am Weitesten verbreitet ist der Partikelschwarmalgorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weitere Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im Weitern nicht weiter eingegangen.
+		Es gibt verschiedene Alogrithmen, die die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am Weitesten verbreitet ist der Partikelschwarmalgorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weitere Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im Weitern nicht weiter eingegangen.\cite{uulm}
 		
 		\paragraph{Ant Colony Algorithm}
 		$\;$ \\
@@ -35,5 +36,4 @@
 		$\;$ \\
 		Der Firefly Algorithm nutzt das Paarungsverhalten von Glühwürmchen. Glühwürmchen werden Unisexuel implementiert damit jedes Tier für das andere als Partner in Frage kommt. \\
 		Zuerst werden Glühwürmchen frei auf dem Suchgebiet verteilt. Danach wird die Fitness beurteilt. Je fitter ein Glühwürmchen ist, desto heller leuchtet es, je heller es leuchtet, desto interessanter ist ein Glühwürmchen für die Artgenossen. Das heisst, jedes einzelne Glühwürmchen bewegt sich auf das Tier zu, das aus seiner Sicht am hellsten ist. Je näher man sich auf ein Glühwürmchen zu bewegt, desto heller leuchtet es. So werden bald alle Glühwürmchen Richtung Optimum wandern. Würden nun alle gleich hell leuchten, sprich dieselbe Fitness haben, würden sich die Tiere zufällig im Suchraum bewegen.
-		
 		
