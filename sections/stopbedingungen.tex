@@ -6,7 +6,7 @@ Die Wahl der Abbruchkriterien kann einen bedeutenden Einfluss darauf haben, wie 
 \subsection{Art der Abbruchkriterien}
 
 \subsubsection{Maximale Anzahl Iterationen}
-Dies ist die einfachste Art, den Algorithmus zu beenden. Es bietet Vorteile, wie z.B. dass man von Anfang an weiss, wie lange der Algorithmus ungefähr dauern wird und dass es einfach zu Implementieren ist, da man sich keine Gedanken um den Wert des Ergebnisses machen muss. \\
+Dies ist die einfachste Art, den Algorithmus zu beenden. Es bietet Vorteile, wie z.B. dass man von Anfang an weiss, wie lange der Algorithmus ungefähr dauern wird und dass es einfach zu implementieren ist, da man sich keine Gedanken um den Wert des Ergebnisses machen muss. \\
 Es gibt aber auch einen klaren Nachteil: Man muss wissen wie lange der Algorithmus laufen muss, um das gewünschte Ziel zu erreichen. Es kann sonst passieren, dass man den Algorithmus abbricht, wenn er gerade bei einer lokalen Extremastelle ist oder sogar noch früher. Man hat bei diesem Abbruchkriterium keinen Einfluss auf die Qualität des Resultats, sondern nur auf die Zeit bis dieses gefunden wird.
 
 \subsubsection{Schwellwert für den global besten Fitnesswert}
@@ -14,7 +14,7 @@ Mit diesem Abbruchkriterium legt man zu Beginn fest, welchen Fitnesswert man err
 Das Problem bei dieser Art von Abbruchkriterium ist, dass man keine Ahnung hat ob und wann der Algorithmus beendet wird. Es kann sein, das man einen Fitnesswert vorgibt, der gar nicht erst erreicht werden kann und der Algorithmus unendlich lange nach diesem Wert sucht. Sollte es kein Extrema geben läuft er ebenfalls unendlich lange. \textbf{Man muss also sicher stellen, das der Algorithmus noch ein weiteres Abbruchkriterium besitzt, da er sonst unendlich lange laufen kann.}
 
 \subsubsection{Schwellwert für die minimale Veränderung der Funktionswerte}
-Mit diesem Abbruchkriterium legt man fest, wie sehr sich die Funktionswerte bei jedem Durchgang verändern müssen. Ändern sich die Funktionswerte weniger als vorgegeben, wird der Algorithmus beendet. Man ist nun in unmittelbarer nähe eines Extremas und hat das gewünschte Resultat erreicht. Der Vorteil gegenüber dem Abbruchkriterium mit Schwellwert für den Fitnesswert ist, dass man hier nicht angeben muss, wie gut ein Ergebnis sein soll und somit kann auch ein Extrema gefunden werden, dass schlechter ist als erwartet. \\ 
+Mit diesem Abbruchkriterium legt man fest, wie sehr sich die Funktionswerte bei jedem Durchgang verändern müssen. Ändern sich die Funktionswerte weniger als vorgegeben, wird der Algorithmus beendet. Man ist nun in unmittelbarer Nähe eines Extremas und hat das gewünschte Resultat erreicht. Der Vorteil gegenüber dem Abbruchkriterium mit Schwellwert für den Fitnesswert ist, dass man hier nicht angeben muss, wie gut ein Ergebnis sein soll und somit kann auch ein Extrema gefunden werden, dass schlechter ist als erwartet. \\ 
 Auch hier beseht die Gefahr, dass es sehr lange dauert bis der Algorithmus beendet wird. Man kann in der Regel nicht sagen, wie lang er laufen wird und sollte es kein globales Extrema geben, beseht die Gefahr, das er endlos läuft. 
 
 \subsubsection{Schwellwert für den minimalen Bewegungsbereich}
