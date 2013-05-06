@@ -24,15 +24,18 @@ Wie die Gleichung \ref{eqn-max-velocity} zeigt, wird die Geschwindigkeit für je
 	\label{fig-max-velocity}
 \end{figure}
 
-Diese Geschwindigkeitsbegrenzung führt jedoch zu Problemen, wenn alle Geschwindigkeiten höher als die Begrenzung sind: Die Teilchen suchen dann nur an den Kanten eines $n$-dimensionalen Hyperwürfels. Als Gegenmassnahme kann $V_{max,j}$ dynamisch angepasst werden, wenn sich die global beste Position gbest über eine Anzahl $\tau$ Iterationen nicht verbessert:
+Die Geschwindigkeit $v_2(t)$ ist hier grösser als die maximale Geschwindigkeit $V_{max}$, weshalb sie auf $v'_2$ reduziert wird. Die Geschwindigkeit $v_1$ wird jedoch nicht verändert. \\
+
+Diese Geschwindigkeitsbegrenzung führt jedoch zu Problemen, wenn alle Geschwindigkeiten höher als die Begrenzung sind: Die Teilchen suchen dann nur an den Kanten eines $n$-dimensionalen Hyperwürfels. Als Gegenmassnahme kann gemäss \cite{schutte-sizing} $V_{max,j}$ dynamisch angepasst werden, wenn sich die global beste Position gbest über eine Anzahl $\tau$ Iterationen nicht verbessert:
 \begin{equation}
 	V_{max,j} = 
 	\begin{cases}
-		\beta V_{max,j} & \text{if} f(\hat{y}(t)) \geq f(\hat{y}(t-t')) \\
-			& \forall \: t' = \{ 1, ..., \tau \} \\
+		\beta V_{max,j} & \text{if} f(\hat{y}(t)) \geq f(\hat{y}(t-t')) 
+			 \; \; \; \;  \forall \: t' = \{ 1, ..., \tau \} \\
 		V_{max,j} & \text{otherwise}
 	\end{cases}
 \end{equation}
+mit $0 < \beta < 1$ \\
 
 Um eine höhere Genauigkeit zu erreichen kann die maximale Geschwindigkeit im Verlauf der Zeit exponentiell verringert werden:
 \begin{equation}

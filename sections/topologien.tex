@@ -31,7 +31,7 @@ Zum Bestimmen der sozialen Komponente des Geschwindigkeitsvektors kommen verschi
 Die gbest Topologie geht von einem transparentem Partikelschwarm aus, in welchem die jeweils persönlich besten Positionen aller Partikel bekannt sind. Die soziale Komponente des gesamten Schwarms bildet sich also aus dem Abstand zur besten Position des gesamten Schwarms. Ein Vorteil dieser Nachbarschaftsbeziehung ist, dass der Schwarm schnell konvergiert, weil alle Partikel auf die momentan beste Position zulaufen.
 
 \subsection{LBest}
-Es existieren mehrere verschiedene lbest Architekturen. Die verbreitetsten Architekturen sind in Abbildung \ref{schwarm-topologien} dargestellt. Das Grundprinzip von lbest ist, dass jedes Partikel nur auf die besten Positionen seiner Nachbarn zugreifen kann. Wie die Nachbarpartikel bestimmt werden ist von der gewählten Topologie abhängig. Die lbest Methode hat den Vorteil, dass die Wahrscheinlichkeit gegen ein lokales Optimum zu konvergieren bedeutend kleiner ist. Dafür dauert es im Normalfall länger, ein Optimum zu finden, als mit der gbest Methode.
+Es existieren mehrere verschiedene lbest Architekturen. Die verbreitetsten Architekturen sind in Abbildung \ref{schwarm-topologien} dargestellt. Das Grundprinzip von lbest ist, dass jedes Partikel nur auf die besten Positionen seiner Nachbarn zugreifen kann. Wie die Nachbarpartikel bestimmt werden ist von der gewählten Topologie abhängig. Die lbest Methode hat den Vorteil, dass die Wahrscheinlichkeit gegen ein lokales Optimum zu konvergieren bedeutend kleiner ist. Dafür dauert es im Normalfall länger, ein Optimum zu finden, als mit der gbest Methode. \\
 
 In der Natur kommunizieren Schwarmtiere mit ihren nächsten Nachbarn. Bei jeder Iteration die Nachbarn zu bestimmen wäre jedoch ein grosser Rechenaufwand, welcher erfahrungsgemäss nicht nötig ist. Meist werden heute bei der Initialisierung die Nachbarn bestimmt und diese bleiben während der Laufzeit dieselben.
 
@@ -43,7 +43,7 @@ Um die Vorteile beider Topologien zu vereinen, kann das von genetischen Algorith
 
 
 \subsubsection{Hierarchische Subpopulationen}
-Ein Spezialfall der Partikelschwarmoptimierung ist die hierarchical subpopulation PSO (HS-PSO) \cite{ChuanLin-HSPSO}. Das Prinzip der HS-PSO ist die Unterteilung des Schwarms nach einem hierarchischen Prinzip, wie in einer Unternehmung.
+Ein Spezialfall der Partikelschwarm-Optimierung ist die \textit{hierarchical subpopulation PSO} (HS-PSO) \cite{ChuanLin-HSPSO}. Das Prinzip der HS-PSO ist die Unterteilung des Schwarms nach einem hierarchischen Prinzip, wie zum Beispiel in einer Unternehmung.
 
 \begin{figure}[htbp]
 	\centering
@@ -54,7 +54,7 @@ Ein Spezialfall der Partikelschwarmoptimierung ist die hierarchical subpopulatio
 
 Die besten Partikel der Subpopulationen \textit{Sub11} - \textit{Sub13} bilden zusammen die Population \textit{Sub1}. Die besten Partikel der Populationen \textit{Sub1} - \textit{Sub2} bilden den Hauptschwarm \textit{Sub}. \\
 
-Die einzelnen Partikelschwärme lassen sich unterschiedlich konfigurieren. So schlägt Chuan Lin in \cite{ChuanLin-HSPSO} vor, Schwärme in tiefen Hierarchiestufen auf das Erforschen des Gesamtgebiets einzustellen (d.h. geringe Sozialkomponente), weil die höheren Hierarchiestufen relativ träge sind. Damit lässt sich ein grosses Gebiet erforschen, doch der Schwarm konvergiert kaum gegen lokale Minima. \\
+Die einzelnen Partikelschwärme lassen sich unterschiedlich konfigurieren. So schlägt Chuan Lin in \cite{ChuanLin-HSPSO} vor, Schwärme in tiefen Hierarchiestufen auf das Erforschen des Gesamtgebiets einzustellen (d.h. geringe Sozialkomponente), während die höheren Hierarchiestufen relativ träge sind. Damit lässt sich ein grosses Gebiet erforschen, doch der Schwarm konvergiert kaum gegen lokale Minima. \\
 
 In Benchmark-Tests haben HS-PSO Varianten bedeutend bessere Resultate als herkömmliche gbest und lbest Topologien hervorgebracht. Das Thema ist jedoch erst schwach erforscht. Weitere Arbeiten, vor allem zu adaptiven hierarchischen Strukturen und dem Informationsaustausch zwischen den Subpopulationen sind jedoch angekündigt.
 

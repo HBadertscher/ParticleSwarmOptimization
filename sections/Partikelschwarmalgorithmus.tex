@@ -1,34 +1,38 @@
 \section{Partikelschwarm-Algorithmus}
 
 \subsection{Algorithmus}
-Für die Partikelschwarm-Optimierung sind folgende Zustandsdaten zu jedem Partikel notwendig: \\
+Für die Partikelschwarm-Optimierung sind folgende Zustandsdaten zu jedem Partikel notwendig:
 \begin{align*}
-	x_i: & \text{aktuelle Position}\\
-	v_i: & \text{aktuelle Geschwindigkeit}\\
-	p_i: & \text{persönlich beste Position} \\
-	l_i: & \text{beste Position des Schwarms}
-\end{align*} \\
+	x_i: & \text{ aktuelle Position}\\
+	v_i: & \text{ aktuelle Geschwindigkeit}\\
+	p_i: & \text{ persönlich beste Position} \\
+	l_i: & \text{ beste Position des Schwarms}
+\end{align*} 
 
 \subsubsection{Initialisierung}
-Üblich ist die Initialisierung gemäss folgenden Formeln: \\
+Üblich ist die Initialisierung gemäss folgenden Formeln:
 \begin{align}
 	x_i(0) &= U(min,max) \\
 	v_i(0) &= \frac{U(min,max) - x_i(0)}{2} \label{Vi-old} \\ 
 	p_i(0) &= x_i(0)
-\end{align} \\
-Die Erfahrung hat gezeigt, dass mit der Initialisierung der Geschwindigkeit gemäss Gleichung \ref{Vi-old} die Partikel bei hohen Dimensionen den Suchraum praktisch unmittelbar verlassen. Um dies zu beheben wurde folgende angepasste Initialisierung eingeführt: \\
+\end{align}
+Die Erfahrung hat gezeigt, dass mit der Initialisierung der Geschwindigkeit gemäss Gleichung \ref{Vi-old} die Partikel bei hohen Dimensionen den Suchraum praktisch unmittelbar verlassen. Um dies zu beheben wurde folgende angepasste Initialisierung eingeführt:
 \begin{equation}
 	v_i(0) = U(min - x_i(0), max - x_i(0))
 \end{equation}
 
 \subsubsection{Update der Geschwindigkeit}
-Bei jeder Iteration werden die Zustandsdaten für jedes Partikel neu berechnet. Die neue Geschwindigkeit ist eine Linearkombination von drei Vektoren. Die Position wird gemäss Gleichung \ref{Pos-Update} aktualisiert. \\
-\begin{align}
-	v_{i}(t+1) &= \mathcal{C}(v_i(t),\, p_i(t)-x_i(t),\, l_i(t)-x_i(t)) \\
-	x_{i}(t+1) &= x_i(t) + v_i(t+1) \label{Pos-Update}
-\end{align}
+Bei jeder Iteration werden die Zustandsdaten für jedes Partikel neu berechnet. Die neue Geschwindigkeit ist eine Linearkombination $\mathcal{C}$ von drei Vektoren: der aktuellen Geschwindigkeit, dem Abstand zur persönlich besten Position, sowie dem Abstand zur besten Position des Schwarms.
+\begin{equation}
+	v_{i}(t+1) = \mathcal{C}(v_i(t),\, p_i(t)-x_i(t),\, l_i(t)-x_i(t))
+\end{equation}
 
-Über die korrekte Wahl der Linearkombination $\mathcal{C}$ wurden bereits ganze Arbeiten geschrieben. Weit verbreitet, wenn auch nicht ideal ist die Berechnung gemäss Gleichung \ref{Vel-Update}. \\
+Die Position wird nach der Geschwindigkeit gemäss Gleichung \ref{Pos-Update} aktualisiert. \\
+\begin{equation}
+	x_{i}(t+1) = x_i(t) + v_i(t+1) \label{Pos-Update}
+\end{equation}
+
+Über die korrekte Wahl der Linearkombination $\mathcal{C}$ wurden bereits ganze Arbeiten geschrieben. Weit verbreitet, wenn auch nicht ganz ideal ist die Berechnung gemäss Gleichung \ref{Vel-Update}. \\
 \begin{equation}
 	v_i(t+1) = w v_i(t) + U(0,c_1) (p_i(t)-x_i(t)) + U(0,c_2) (l_i(t)-x_i(t))\label{Vel-Update}
 \end{equation}
@@ -39,7 +43,7 @@ mit den folgenden Parametern:
 	c_1 &: \text{Cognitive Factor} \\
 	c_2 &: \text{Social Factor}
 \end{align*}
-Diese Parameter, auch Acceleration Coefficients genannt, beeinflussen das  Verhalten und die Konvergenz des Schwarms. Hohe $c_1$ und $c_2$ führen zu abrupteren Bewegungen und höheren Beschleunigungen. Mit der Gewichtung dieser beiden Faktoren lässt sich weiter einstellen, wie stark sich die Partikel von Schwarm beeinflussen lassen. Wie genau diese Parameter eingestellt werden ist von der Problemstellung abhängig. Gemäss \cite{Clerc-Stagnation} haben sich folgende Werte für einfache Probleme als zweckmässig erwiesen:
+Diese Parameter, auch \textit{Acceleration Coefficients} genannt, beeinflussen das  Verhalten und die Konvergenz des Schwarms. Hohe $c_1$ und $c_2$ führen zu abrupteren Bewegungen und höheren Beschleunigungen. Mit der Gewichtung dieser beiden Faktoren lässt sich weiter einstellen, wie stark sich die Partikel von Schwarm beeinflussen lassen. Wie genau diese Parameter eingestellt werden ist von der Problemstellung abhängig. Gemäss Maurice Clerc \cite{Clerc-Stagnation} haben sich folgende Werte für die meisten Probleme als zweckmässig erwiesen:
 \begin{equation}
 	\left\lbrace \begin{array}{lllll}
 		w & = & \frac{1}{2 \ln(2)} & \simeq & 0.721 \\

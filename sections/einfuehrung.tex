@@ -1,39 +1,41 @@
 \section{Einführung}
-		Die Partikelschwarmoptimierung wurde von James Kennedy \& Russel Eberhart im Jahre 1995 entwickelt. Es handelt sich um einen nummerischen Optimierungsalgorithmus. Er simuliert das Verhalten von natürlichen Schwärmen um mathematische Problemstellungen zu optimieren.\\
-		Es bewegt sich ein Schwarm von Partikeln durch den Suchraum. Jedes Partikel hat eine Richtung und Geschwindigkeit sowie eine "Fitness". Die Fitness sagt aus, wie gut die momentane Position ist. Partikel mit einer guten Fitness ziehen andere Partikel an, solche mit schlechter Fitness stossen andere Partikel ab. So beeinflussen sich die Partikel gegenseitig und man kann sehr viel parallel berechnen, was vor allem bei Multicore Computersystemen von Vorteil ist. \\
+		Die Partikelschwarm-Optimierung wurde von James Kennedy \& Russel Eberhart im Jahre 1995 entwickelt. Es handelt sich um einen nummerischen Optimierungsalgorithmus. Er simuliert das Verhalten von natürlichen Schwärmen um mathematische Problemstellungen zu optimieren.\\
+		
+		Es bewegt sich ein Schwarm von Partikeln durch den Suchraum. Jedes Partikel hat eine Richtung und Geschwindigkeit sowie eine "Fitness". Die Fitness sagt aus, wie gut die momentane Position ist. Partikel mit einer guten Fitness ziehen andere Partikel an, solche mit schlechter Fitness stossen andere Partikel ab. So beeinflussen sich die Partikel gegenseitig und man kann sehr viel parallel berechnen, was vor allem bei Multicore Computersystemen von Vorteil ist.
 		Diese Art von Optimierung wurde erst durch die Entwicklung von leistungsstarken Computersystemen möglich. Die ständig steigende Rechenleistung ermöglicht immer umfassendere Simulationen und damit immer umfassendere Optimierungen.
 		\subsection{Schwarm}
-		In der Natur gibt es viele verschiedene Strukturen und Formen in denen viele einzelne Bestandteile zusammen wirken. Eine davon ist ein Schwarm.\\
+		In der Natur gibt es viele verschiedene Strukturen und Formen in denen viele einzelne Bestandteile zusammen wirken. Eine davon ist ein Schwarm.
 		Wenn man von Schwärmen spricht, denkt man an Fisch- oder an Vogelschwärme, die sich in der freien Wildbahn  bilden um z.B. als Zugvogelschwarm nach Süden oder Norden zu ziehen, als Fischschwarm gemeinsam auf Nahrungssuche zu gehen oder sich gegen natürlich Feinde zu verteidigen. Solche Schwärme können das Wissen jedes Einzelnen nutzen und so beispielsweise die besten Futterplätze finden.
 		\subsection{Schwarmintelligenz}
 		Ein Schwarm kann als Ganzes eine Eigenschaft haben, die aus den einzelnen Mitgliedern des Schwarms nicht voraussagbar ist. So kann eine einzelne Nervenzelle keine Informationen speichern. Wenn nun aber Milliarden von Nervenzellen richtig zusammen zu einem \textacutedbl Hirn\textacutedbl \ verknüpft sind, kann das Ganze denken wie auch Informationen speichern. Dies sind offenbar emergente Eigenschaften, welche nicht durch einzelne Nervenzellen sondern durch eine Vielzahl von Nervenzellen zustande kommt.
 		\cite{partice-swarm-optimization}
 		\subsection{Emergenz}
-		Emergente Eigenschaften sind Eigenschaften, die durch das Zusammenspiel vom vielen einzelnen Teilen, zum Beispiel in einem Schwarm, entstehen. Diese Eigenschaften lassen sich nicht immer nur aus den Bestandteilen des Schwarms vorhersagen. \\
-		Dass es ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch intelligenter ist, als das Verhalten der Bestanteile selbst. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen. \\
+		Emergente Eigenschaften sind Eigenschaften, die durch das Zusammenspiel vom vielen einzelnen Teilen, zum Beispiel in einem Schwarm, entstehen. Diese Eigenschaften lassen sich nicht immer nur aus den Bestandteilen des Schwarms vorhersagen.
+		Dass ein Zusammenspiel von Bestandteilen ein Verhalten begründet, sagt noch nicht aus, dass dieses Verhalten automatisch intelligenter ist, als das Verhalten der Bestandteile selbst. In der Natur hat sich aber gezeigt, dass dieses emergente Verhalten oft wesentlich intelligenter ist, als das Verhalten von den einzelnen Bestandteilen. \\
+		
 		Die Emergenz ist Grundbestandteil von Algorithmen, welche auf das Verhalten von Schwärmen zurückgreifen.\cite{melchior-bsc}
 		
 		\input{sections/Schwarmalgorithmus.tex}
 				
 		\subsubsection{Algorithmen}
-		Es gibt verschiedene Alogrithmen, die die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am weitesten verbreitet ist der Partikelschwarmalgorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weitere Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im Weitern nicht weiter eingegangen.\cite{uulm}
+		Es gibt verschiedene Alogrithmen, welche die Schwarmintelligenz nutzen. Im Anschluss werden einige kurz vorgestellt. Am weitesten verbreitet ist der Partikelschwarm-Algorithmus sowie der Ameisenalgorithmus, jedoch gibt es noch weitere Algorithmen, welche ebenfalls erforscht und weiterentwickelt werden. Auf diese Algorithmen wird im Weitern nicht eingegangen.\cite{uulm}
 		
 		\paragraph{Ant Colony Algorithm}
 		$\;$ \\
-		Auch Ameisen nutzen die Intelligenz des Ganzen wenn sie Futterplätze suchen. Hat eine Ameise einen Futterplatz gefunden, hinterlässt sie auf dem Rückweg Pheromone, an denen sich andere Ameisen orientieren und so den Futterplatz und auch den Rückweg finden können. Findet nun eine Ameise einen schnelleren Weg zurück, so verflüchtigen sich diese Pheromone langsamer, da es weniger Zeit braucht für einen Weg. So werden die andere Ameisen aufmerksam auf diese stärkere Spur und schlussendlich nutzen alle diesen schnelleren Weg. Dieses Prinzip wird im Ameisenalgorithmus (ant colony optimization algorithm) ausgenützt.\\Dieser Algorithmus wird typischerweise für eine Pfadoptimierung verwendet.
+		Auch Ameisen nutzen die Intelligenz des Ganzen wenn sie Futterplätze suchen. Hat eine Ameise einen Futterplatz gefunden, hinterlässt sie auf dem Rückweg Pheromone, an denen sich andere Ameisen orientieren und so den Futterplatz und auch den Rückweg finden können. Findet nun eine Ameise einen schnelleren Weg zurück, so verflüchtigen sich diese Pheromone langsamer, da es weniger Zeit braucht für einen Weg. So werden die andere Ameisen aufmerksam auf diese stärkere Spur und schlussendlich nutzen alle diesen schnelleren Weg. Dieses Prinzip wird im Ameisenalgorithmus (ant colony optimization algorithm) ausgenützt.Dieser Algorithmus wird typischerweise für eine Pfadoptimierung verwendet.
 		
 		\paragraph{Invasive Weed}
 		$\;$ \\
-		Dieser Algorithmus orientiert sich an der Fortpflanzung von Pflanzen. Es werden Pflanzen frei über das Suchgebiet verteilt und dann die Fitness bewertet. Je fitter eine Pflanze ist, desto mehr Pflanzensamen verteilt sie. Auch bei diesen Pflanzensamen wird die Fitness bewertet. Das ganze wird solange fortgeführt, bis eine maximale Anzahl Pflanzen, die zuvor definiert wurde, erreicht ist. Dann wird die Fitness aller Pflanzen bewertet und nur die der Besten werden in einen neuen Durchgang mitgenommen. Dies wird solange wiederholt, bis das Abbruchkriterium erfüllt ist.
+		Der Invasive Weed Algorithmus orientiert sich an der Fortpflanzung von Pflanzen. Es werden Pflanzen frei über das Suchgebiet verteilt und dann die Fitness bewertet. Je fitter eine Pflanze ist, desto mehr Pflanzensamen verteilt sie. Auch bei diesen Pflanzensamen wird die Fitness bewertet. Das Ganze wird solange fortgeführt, bis eine maximale Anzahl Pflanzen, die zuvor definiert wurde, erreicht ist. Dann wird die Fitness aller Pflanzen bewertet und nur die Besten werden in einen neuen Durchgang mitgenommen. Diese Schritte werden solange wiederholt, bis das Abbruchkriterium erfüllt ist.
 				
 		
 		\paragraph{Bees Algorithm}
 		$\;$ \\
-		Beim Bienenalgorithmus hat man, wie der Name schon sagt, bei den Bienen abgeschaut.\\
-		In einem ersten Schritt werden \textacutedbl Scouts\textacutedbl \ frei über das Suchgebiet verteilt und im Anschluss deren Fitness angeschaut. Bei dem \textacutedbl Scout\textacutedbl \ mit der besten Fitness werden in der Umgebung erneut \textacutedbl Bienen\textacutedbl \ verteilt und deren Fitness beurteilt. Dieser Schritt wiederholt sich, bis man ein Ergebnis erreicht hat, das das Abbruchkriterium erfüllt.\\Dieser Algorithmus wird typischerweise für kombinatorische oder funktionale Optimierung verwendet.
+		Beim Bienenalgorithmus hat man, wie der Name schon sagt, bei den Bienen abgeschaut.
+		In einem ersten Schritt werden \textacutedbl Scouts\textacutedbl \ frei über das Suchgebiet verteilt und im Anschluss deren Fitness betrachtet. Bei dem \textacutedbl Scout\textacutedbl \ mit der besten Fitness werden in der Umgebung erneut \textacutedbl Bienen\textacutedbl \ verteilt und deren Fitness beurteilt. Dieser Schritt wiederholt sich, bis man ein Ergebnis erreicht hat, das das Abbruchkriterium erfüllt.Dieser Algorithmus wird typischerweise für kombinatorische oder funktionale Optimierung verwendet.
 		
 		\paragraph{Firefly Algorithm} 
 		$\;$ \\
-		Der Firefly Algorithm nutzt das Paarungsverhalten von Glühwürmchen. Glühwürmchen werden unisexuel implementiert, damit jedes Tier für das andere als Partner in Frage kommt. \\
+		Der Firefly Algorithm nutzt das Paarungsverhalten von Glühwürmchen. Glühwürmchen werden unisexuel implementiert, damit jedes Tier für das andere als Partner in Frage kommt. 
 		Zuerst werden Glühwürmchen frei auf dem Suchgebiet verteilt. Danach wird die Fitness beurteilt. Je fitter ein Glühwürmchen ist, desto heller leuchtet es, je heller es leuchtet, desto interessanter ist ein Glühwürmchen für die Artgenossen. Das heisst, jedes einzelne Glühwürmchen bewegt sich auf das Tier zu, das aus seiner Sicht am hellsten ist. Je näher man sich auf ein Glühwürmchen zu bewegt, desto heller leuchtet es. So werden bald alle Glühwürmchen Richtung Optimum wandern. Würden nun alle gleich hell leuchten, sprich dieselbe Fitness haben, würden sich die Tiere zufällig im Suchraum bewegen.
 		
