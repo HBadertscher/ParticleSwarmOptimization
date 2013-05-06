@@ -20,12 +20,13 @@ Die Dissertation \cite{Diss-Ledermann} von Thomas Ledermann beschäftigt sich u.
 	\label{Fig-Getriebewelle}
 \end{figure}
 
-Es müssen nebst den Getriebewellen auch verschiedene weitere Objekte, wie Hohlringe oder Gehäusedeckel erkennbar sein. Für alle Gegenstände werden die entsprechenden 3D-CAD-Daten geliefert. Die Objekte liegen immer artenrein vor, d.h. es kommt immer nur eine Art Teile vor. \\
+Die Getriebewellen liegen ungeordnet in einer Kiste und müssen mit einem Roboterarm entnommen werden. Die Aufgabe der Partikelschwarm-Optimierung ist es, möglichst optimal die Position und Ausrichtung einer Getriebewelle zu bestimmen, um diese mit einem Griff aufnehmen und prüfen zu können.
+Der Algorithmus muss so ausgestaltet werden, dass auch andere Objekte, wie Hohlringe oder Gehäusedeckel erkannt werden können. Die Werkstücke liegen jedoch immer artenrein vor, d.h. es ist bekannt um welche Teile es sich handelt (3D-CAD Daten sind bekannt), und es werden keine verschiedenen Teile gemischt.
 
 \subsubsection{Umsetzung}
-Zur Erkennung der Objekte muss eine Wissensbasis $W$ bestehend aus Merkmalen des Objekts bekannt sein. Gut auswertbar sind in erster Linie Merkmale, wie Kreise / Ellipsen, Kantenzüge, Ebenen, Volumenkörper, Histogramme. Alle diese Merkmale bis auf Histogramme schränken die Objektbeschreibung stark ein, weil nicht alle Objekte über solche Merkmale verfügen. Als beste Wahl herausgestellt hat sich deshalb die Verwendung von Histogrammen. \\
+Zur Erkennung der Objekte muss eine sog. Wissensbasis $W$ erstellt werden. Diese besteht aus bekannten Merkmalen des zu erkennenden Objekts. Gut auswertbar sind in erster Linie Merkmale, wie Kreise / Ellipsen, Kantenzüge, Ebenen, Volumenkörper, Histogramme. Alle diese Merkmale bis auf Histogramme schränken die Objektbeschreibung stark ein, weil nicht alle Objekte über solche Merkmale verfügen. Die Wissensbasis $W$ ist also eine Datenbank bestehend aus bekannten Histogrammen des zu erkennenden Objekts. \\
 
-Für die gegebenen Tiefendaten $T = \{ (x,y,z) \in \mathbb{R}^3 ; T(x,y)=z\}$ werden folgende Auswertungen gemacht: \\
+Für die gegebenen Tiefendaten $T$ werden folgende Auswertungen gemacht, um die Position eines Objekts möglichst genau bestimmen bzw. optimieren zu können:  \\
 
 \textbf{Objektorientierung $R_i$}: Die Objektorientierung gibt an, mit welchem Eintrag aus der Wissensbasis die Partikelposition verglichen werden soll. Zur Bestimmung der Orientierung gibt es verschiedene Ansätze. Gegenüber der Darstellung mittels Richtungskosinus oder Quaternionen hat sich aufgrund der Einfachheit und der Anschaulichkeit die in der Luftfahrt verbreitete Yaw-Pitch-Roll-Variante der Eulerwinkel durchgesetzt.
 
@@ -40,11 +41,12 @@ Für die gegebenen Tiefendaten $T = \{ (x,y,z) \in \mathbb{R}^3 ; T(x,y)=z\}$ we
 
 \textbf{Objektmerkmalsdaten $C_i$}: Die Objektmerkmalsdaten geben an, welche Tiefendaten ausgehend von $P_i$ in die Auswertung einbezogen werden sollen. Sämtliche Tiefenwerte, welche zur potentiellen Objektlage gehören, müssen mittels einer geeigneten Segmentierung vom Hintergrund getrennt werden. \\
 
-Mathematisch sind die Positionsdaten und die Fitnessfunktion also folgendermassen definiert: 
-\begin{align}
-	p_i &= f(\alpha ,\beta ,\gamma) \\
-	f(p_i) &= f(R_i,P_i,C_i)
-\end{align}
+
+Die Fitnessfunktion ist abhängig von all diesen Auswertungen:
+\begin{equation}
+	f(p_i) = f(R_i,P_i,C_i)
+\end{equation}
+Auf Basis dieser Werte wird die Fitnessfunktion über Vergleiche mit bekannten Histogrammen aus der Wissensbasis $W$ berechnet.
 
 \subsubsection{Resultate}
 Der Partikelschwarm wird mit 100 Partikeln in lbest Topologie mit 30 Nachbarn realisiert. Bei 100 Iterationen wird innerhalb von 4 Sekunden ein Resultat erreicht. In einer Kiste mit 50 Teilen wurden lediglich 4 Objektpositionen falsch erkannt, was einer Erkennungsrate von 92 \% entspricht. Nach erneutem scannen werden auch die falsch erkannten Teile meist korrekt erkannt. Weitere Verbesserungen zur Verkürzung der Taktzeiten und zur gleichzeitigen Erkennung  mehrerer Objekte sind in Planung und sollten gut realisierbar sein.
